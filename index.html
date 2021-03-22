@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Webhook Tutorial</title>
+  </head>
+  <body>
+    <input type="text" id="input-id" value="Enter the text">
+    <button onclick="sendMessage()">Send</button>
+  </body>
+
+  <script>
+    function sendMessage() {
+      var request = new XMLHttpRequest();
+      request.open("POST","YOUR WEBHOOK URL");
+
+      request.setRequestHeader('Content-type', 'application/json');
+
+      var params = {
+        username: "YOUR WRBHOOK NICKNAME",
+        avatar_url: "Leave the field blank if you do not need this field",
+        content: document.getElementById("input-id").value
+      }
+
+      request.send(JSON.stringify(params));
+    }
+  </script>
+</html>
